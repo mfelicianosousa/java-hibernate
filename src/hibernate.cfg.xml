@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration.dtd">
+
+<hibernate-configuration>
+    <session-factory name="hibernate/sessionFactory">
+	<!-- Classe Aluno -->
+	<mapping resource="br/com/mfsdevsystem/controller/aluno.hbm.xml"/>
+        <!-- Classe Pessoa -->
+        <mapping resource="br/com/mfsdevsystem/controller/pessoa.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

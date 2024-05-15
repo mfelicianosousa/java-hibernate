@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="br.com.mfsdevsystem.model.Pessoa" table="pessoa">
+        <id name="id" column="id" type="long">
+            <generator class="sequence">
+                <param name="sequence">pessoa_id_seq</param>
+            </generator>
+        </id> 
+        <property name="nome"/>
+        <property name="sexo"/> 
+        <property name="dataNascimento"/>
+        <property name="telefone"/> 
+        <property name="cpf"/> 
+        <component name="Endereco">
+            <property name="cep"/>
+            <property name="logradouro">
+                <column name="logradouro" length="30" not-null="false"/>
+            </property>
+            <property name="numero"/>
+            <property name="complemento"/>
+            <property name="bairro"/>
+            <property name="cidade"/>
+            <property name="estado"/>            
+        </component>
+    </class> 
+</hibernate-mapping>
