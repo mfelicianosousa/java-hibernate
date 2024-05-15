@@ -1,10 +1,9 @@
-package br.com.mfsdevsystem.view;
+package br.com.mfsdevsystem.Utils;
 
 /**
  *
  * @author Marcelino
  */
-
 import br.com.mfsdevsystem.model.Aluno;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,7 +24,7 @@ public class ListarAluno {
         
         try
         { 
-            
+            /*
              Configuration configuration = new Configuration()
                      .setProperty("hibernate.connection.driver_class","org.postgresql.Driver")
                      .setProperty("hibernate.connection.url","jdbc:postgresql://localhost:5433/javaHibernate?autorecconect=true")
@@ -38,11 +37,13 @@ public class ListarAluno {
                      .setProperty("hibernate.hbm2ddl.auto","update")
                      .setProperty("hibernate.bytecode.use_reflection_optimizer","false")
                      .configure("hibernate.cfg.xml");
+             */
+             //SessionFactory fabrica = configuration.buildSessionFactory();
              
-             SessionFactory fabrica = configuration.buildSessionFactory();
+             //Session sessao = fabrica.openSession();
+            
+            Session sessao = HibernateUtil.getSession();
              
-             Session sessao = fabrica.openSession();
-         
              Aluno obj_aluno = (Aluno) sessao.get(Aluno.class, 7);
              String dados_aluno = obj_aluno.getNome();
              
