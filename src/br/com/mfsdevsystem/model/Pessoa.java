@@ -38,45 +38,46 @@ public class Pessoa implements Serializable {
     public String getNome() {
         return nome;
     }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public char getSexo() {
         return sexo;
+    }
+    
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
     }
 
     public String getEmail() {
         return email;
     }
-
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
+    
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
 
     public String getTelefone() {
         return Telefone;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
+    }
+    
+    public String getCpf() {
+        return cpf;
     }
 
     public void setCpf(String cpf) {
@@ -90,7 +91,6 @@ public class Pessoa implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
     
     
     @Override

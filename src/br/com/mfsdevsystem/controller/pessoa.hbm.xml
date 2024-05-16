@@ -11,6 +11,7 @@
         </id> 
         <property name="nome"/>
         <property name="sexo"/> 
+        <property name="email"/> 
         <property name="dataNascimento"/>
         <property name="telefone"/> 
         <property name="cpf"/> 
