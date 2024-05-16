@@ -9,22 +9,45 @@
                 <param name="sequence">pessoa_id_seq</param>
             </generator>
         </id> 
-        <property name="nome"/>
-        <property name="sexo"/> 
-        <property name="email"/> 
-        <property name="dataNascimento"/>
-        <property name="telefone"/> 
-        <property name="cpf"/> 
-        <component name="Endereco">
-            <property name="cep"/>
-            <property name="logradouro">
-                <column name="logradouro" length="30" not-null="false"/>
+        <property name="nome"> 
+           <column name="nome"  length="40" not-null="false"/>
+        </property>
+        <property name="sexo">
+            <column name="genero" length="1"  not-null="false"/>
+        </property>   
+        <property name="email">
+            <column name="email" length="50" not-null="false"/> 
+        </property>
+        <property name="dataNascimento" column="data_nascimento" type="date" />
+        <property name="telefone">
+            <column name="fone" length="15" not-null="false"/>
+        </property> 
+        <property name="cpf">
+            <column name="cpf" length="11" not-null="false"/> 
+        </property>
+         <component name="Endereco">
+            <property name="cep">
+                <column name="cep" length="8" not-null="false"/>
             </property>
-            <property name="numero"/>
-            <property name="complemento"/>
-            <property name="bairro"/>
-            <property name="cidade"/>
-            <property name="estado"/>            
+            <property name="logradouro">
+                <column name="logradouro" length="40" not-null="false"/>
+            </property>
+            <property name="numero">
+                <column name="numero" length="10" not-null="false"/>
+            </property>
+            <property name="complemento">
+                <column name="complemento" length="20" not-null="false"/>
+            </property>
+            <property name="bairro">
+                <column name="bairro" length="30" not-null="false"/>
+            </property>
+            
+            <property name="cidade">
+                <column name="cidade" length="30" not-null="false"/>
+            </property>
+            <property name="estado">
+                <column name="uf" length="2" not-null="false"/>
+            </property>            
         </component>
     </class> 
 </hibernate-mapping>

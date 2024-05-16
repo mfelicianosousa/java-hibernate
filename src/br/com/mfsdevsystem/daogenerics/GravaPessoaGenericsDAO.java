@@ -29,8 +29,8 @@ public class GravaPessoaGenericsDAO {
              pessoa.setEmail("pedro.silva@gmail.com");
              pessoa.setSexo('M');
              pessoa.setTelefone("(65) 98240-3191");
-             LocalDate data = LocalDate.of(1980,07,15);
-             pessoa.setDataNascimento( data );
+            // LocalDate data = LocalDate.of(1980,07,15);
+            // pessoa.setDataNascimento( data );
              pessoa.setTelefone("(65) 98070-2022");
              
              endereco.setCep("78088120");

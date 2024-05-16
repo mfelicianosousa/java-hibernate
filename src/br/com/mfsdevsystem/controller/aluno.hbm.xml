@@ -9,13 +9,23 @@
                 <param name="sequence">alunos_id_seq</param>
             </generator>
         </id> 
-        <property name="nome"/>
-        <property name="cidade"/> 
-        <property name="telefone"/>
-        <property name="curso"/> 
+        <property name="nome">
+            <column name="nome" length="40" not-null="false"/>
+        </property>
+        <property name="cidade">
+            <column name="cidade" length="40" not-null="false"/>
+        </property> 
+        <property name="telefone">
+            <column name="telefone" length="20" not-null="false"/>
+        </property>
+        <property name="curso">
+            <column name="curso" length="30" not-null="false"/>
+        </property> 
+        
+        
         <set name="telefones" table="telefones_alunos">
             <key column="id_aluno"/>
-            <element column="telefone" type="string"/>
+            <element column="telefone" length="20" type="string"/>
         </set>
     </class> 
 </hibernate-mapping>
