@@ -8,15 +8,18 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.com.mfsdevsystem.model.Aluno;
 import br.com.mfsdevsystem.utils.HibernateUtil;
+import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Restrictions;
 
-public class query_paginada {
+public class api_criteria {
 
     private static final Logger logger = LoggerFactory.getLogger(hql_query.class);
 
@@ -24,11 +27,29 @@ public class query_paginada {
         try {
 
             Session sessao = HibernateUtil.getSession();
-            Query query = sessao.createQuery("from Aluno");
-            query.setMaxResults(4);
-            query.setFirstResult(5);
 
-            List<Aluno> list_alunos = query.list();
+            Criteria criteria = sessao.createCriteria(Aluno.class);
+            //criteria.setMaxResults(5);
+            //criteria.setFirstResult(1);
+            //criteria.addOrder( Order.asc("nome"));
+            //criteria.addOrder( Order.asc("cidade"));
+            criteria.addOrder(Order.asc("curso"));
+            //criteria.add(Expression.eq("nome", "Analu"));  
+
+            //criteria.add(Restrictions.between("id", 2,7));
+            // formas de pesquisa por cidade
+            // forma 1 = Expression.eq()
+            // criteria.add(Expression.eq("cidade", "Lajeado"));  
+            //
+            // forma 2 = Array
+            //
+            //String[] cidades = {"Carazinho", "Lajeado"};
+            //criteria.add(Restrictions.in("cidade", cidades));
+            
+            // forma 3 = like 
+            criteria.add(Restrictions.like("cidade", "Lajeado"));
+            
+            List<Aluno> list_alunos = criteria.list();
 
             int tamanho_lista = list_alunos.size();
             String dados = "";
@@ -45,6 +66,7 @@ public class query_paginada {
             sessao.close();
 
         } catch (Exception e) {
+
             logger.error("Erro na listagem dos dado no banco de dados: " + e);
             JOptionPane.showMessageDialog(null, "Erro de listagem de dados no banco de dados : " + e);
         }

@@ -8,33 +8,38 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.com.mfsdevsystem.model.Aluno;
 import br.com.mfsdevsystem.utils.HibernateUtil;
 
-public class query_paginada {
+public class QueryByExemple {
 
-    private static final Logger logger = LoggerFactory.getLogger(hql_query.class);
+    private static final Logger logger = LoggerFactory.getLogger(QueryByExemple.class);
 
     public static void main(String[] args) {
+
         try {
 
             Session sessao = HibernateUtil.getSession();
-            Query query = sessao.createQuery("from Aluno");
-            query.setMaxResults(4);
-            query.setFirstResult(5);
+            Aluno aluno = new Aluno();
+            aluno.setCidade("Lajeado");
+            aluno.setCurso("Pedreiro");
 
-            List<Aluno> list_alunos = query.list();
+            Criteria criteria = sessao.createCriteria(Aluno.class);
+            criteria.add(Example.create(aluno));
+
+            List<Aluno> list_alunos = criteria.list();
 
             int tamanho_lista = list_alunos.size();
             String dados = "";
             for (int i = 0; i < tamanho_lista; i++) {
 
-                Aluno aluno = list_alunos.get(i);
+                aluno = list_alunos.get(i);
 
                 dados = dados + '\n' + aluno.getId() + " - " + aluno.getNome() + " - " + aluno.getCidade() + " - " + aluno.getCurso();
                 System.out.println(aluno.getId() + " - " + aluno.getNome() + " - " + aluno.getCidade() + " - " + aluno.getCurso());
@@ -50,4 +55,5 @@ public class query_paginada {
         }
 
     }
+
 }
