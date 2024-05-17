@@ -28,4 +28,7 @@
             <element column="telefone" length="20" type="string"/>
         </set>
     </class> 
+    <query name="mostra_todos_alunos">
+        <![CDATA[from Aluno]]>
+    </query>
 </hibernate-mapping>

@@ -1,4 +1,4 @@
-package br.com.mfsdevsystem.Utils;
+package br.com.mfsdevsystem.utils;
 
 /**
  *

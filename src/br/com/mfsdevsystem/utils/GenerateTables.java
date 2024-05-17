@@ -2,7 +2,7 @@
  *
  * @author Marcelino
  */
-package br.com.mfsdevsystem.Utils;
+package br.com.mfsdevsystem.utils;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 

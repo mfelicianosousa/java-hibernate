@@ -1,7 +1,7 @@
 package br.com.mfsdevsystem.dao;
 
 import br.com.mfsdevsystem.model.Aluno;
-import br.com.mfsdevsystem.Utils.HibernateUtil;
+import br.com.mfsdevsystem.utils.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
